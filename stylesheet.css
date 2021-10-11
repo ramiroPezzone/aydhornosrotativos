@@ -1,0 +1,3153 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+    font-family: "Lato", sans-serif;
+    scroll-behavior: smooth;
+}
+body {
+    background: rgb(207, 207, 207);   
+}
+
+/* INICIO GRID */
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "nav        nav"
+    "header     header"
+    "nosotros   nosotros"
+    "tituloDe4  tituloDe4"
+    "hornoDe4   hornoDe4"
+    "tablaDe4   tablaDe4"
+    "tituloDe10 tituloDe10"
+    "hornoDe10  hornoDe10"
+    "tablaDe10  tablaDe10"
+    "contacto   contacto"
+    "footer     footer";
+}
+
+.contenedor .nav {
+    grid-area: nav;
+}
+.contenedor .header {
+    grid-area: header;
+}
+.contenedor .nosotros {
+    grid-area: nosotros;
+}
+.contenedor .tituloDe4 {
+    grid-area: tituloDe4;
+}
+.contenedor .hornoDe4 {
+    grid-area: hornoDe4;
+}
+.contenedor .tablaDe4 {
+    grid-area: tablaDe4;
+}
+.contenedor .tituloDe10 {
+    grid-area: tituloDe10;
+}
+.contenedor .hornoDe10 {
+    grid-area: hornoDe10;
+}
+.contenedor .tablaDe10 {
+    grid-area: tablaDe10;
+}
+.contenedor .contacto {
+    grid-area: contacto;
+}
+.contenedor .footer {
+    grid-area: footer;
+}
+/* FIN GRID */
+
+/* INICIO FIRST MOBILE (320px) */
+.menuDeNav {
+    display:none;
+}
+.nav {
+    height: 60px;
+    background: linear-gradient(to bottom,#fe0000, #00000000);
+    position:sticky;
+    top: 0;
+    z-index: 1000;
+}
+#logoDelNav {
+    position: absolute;
+    width:120px;
+    left: 3vw;
+    top:10px;    
+    cursor: pointer;
+    transition: .3s;
+}
+/* #logoDelNav:hover {
+    filter: drop-shadow(0 0 10px #ffffff);
+    transition: .3s;
+} */
+
+    /* INICIO MENU ABSOLUTO */
+    /* MENU OCULTO */
+.menuAbsolutoOculto {
+    position: fixed;
+    left:-150vw;
+    z-index: 10000;
+    background: linear-gradient(to right, #c00000,#c00000,#fe000000);
+    width: 100vw;
+    height: 100%;
+    font-size: 9vw;
+    font-weight: lighter;
+    transition: .5s;
+}
+.menuAbsolutoOculto li {
+    margin: 10px auto;
+    padding: 5vw 0;
+    padding-left: 4vw;
+    transition: .5s;
+}
+.menuAbsolutoOculto ul a {
+    text-decoration: none;
+    color: rgb(212, 212, 212);
+    transition: .5s;
+}
+    /* FIN MENU OCULTO */
+    /* MENU OPEN */
+.menuAbsoluto {
+    position: fixed;
+    left:0;
+    z-index: 10000;
+    background: linear-gradient(to right, #c00000,#c00000,#fe000000);
+    width: 86vw;
+    height: 100%;
+    font-size: 9vw;
+    font-weight: lighter;
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -o-transform: translate(0);
+    transform: translateZ(0);
+    transition: .7s;
+}
+.menuAbsoluto li {
+    list-style-type: none;
+    padding-top: 70px;
+    padding-left: 5vw;
+}
+/* 
+.menuAbsoluto ul li:hover {
+    background: linear-gradient(to right, #fe0000,#fe0000,#fe000000);
+    transition: 1s;
+} */
+    /* FIN MENU OPEN */
+    /* FIN MENU ABSOLUTO*/
+
+    /* INICIO MENU DESPLEGABLE */
+.menuDesplegable {
+    position: relative;
+    width: 39px;
+    height: 30px;
+    top: 13px;
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.contenedor .nav .menuDesplegable .subMenuDesplegable{
+    margin: 0 auto;
+    transition: .3s;    
+    background-color: #8f8f8f;
+    width: 3px;
+    height: 28px;
+    color: transparent;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.contenedor .nav .menuDesplegable .subMenuDesplegable::after {
+    position:absolute;
+    content: ".";    
+    background: #8f8f8f;
+    color: transparent;
+    height: 35px;
+    top: -3px;
+    left: 13px;
+    transition: .3s;
+}
+.contenedor .nav .menuDesplegable .subMenuDesplegable::before {
+    position:absolute;
+    content: ".";
+    color: transparent;
+    background: #8f8f8f;
+    height: 35px;
+    right: 13px;
+    top: -3px;
+    transition: .3s;
+
+}
+    /* FIN MENU DESPLEGABLE */
+
+    /* INICIO ANIMACION MENU DESPLEGABLE */
+.contenedor .nav .menuDesplegable .open {
+    margin: 0 auto;
+    background-color: transparent;
+    color: transparent;
+    width: 4px;
+    height: 30px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transition: .3s;    
+}
+/* .contenedor .nav .menuDesplegable:hover > .open{
+    transition: .3s;
+    background: #000;
+} */
+.contenedor .nav .menuDesplegable .open::before {
+    position:absolute;
+    content: ".";
+    background: #000;
+    color: transparent;
+    right: 1px;
+    height: 40px;
+    transition: .3s;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.contenedor .nav .menuDesplegable .open::after {
+    position:absolute;
+    content: ".";    
+    background: #000;
+    color: transparent;
+    height: 40px;
+    left: -1px;
+    transition: .3s;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/* .contenedor .nav .menuDesplegable:hover > .open{
+    transition: .8s;
+    background: transparent;
+}
+.contenedor .nav .menuDesplegable:hover > .open::after {
+    transition: .8s;
+    background: #000;
+}
+.contenedor .nav .menuDesplegable:hover > .open::before{
+    transition: .8s;
+    background: #000;
+} */
+    /* FIN ANIMACION MENU DESPLEGABLE */
+
+    /* INICIO HEADER */
+.contenedorDeImagen {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#logoayd {
+    width: 80vw;
+    vertical-align: middle;
+    margin-bottom: 30vw;
+}
+
+    /* FIN HEADER */
+
+    /* INICIO PRESENTACION (nosotros)*/
+#presentacion {
+    position: relative;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), #fff, rgba(255, 255, 255, 0));
+    border-top: 3vw solid #a1a1a1;
+    border-bottom: 3vw solid #a1a1a1;
+    width: 100vw;
+    height: 352px;
+    text-align: center;
+    display: inline-block;
+}
+#hornoDeFondo {
+    object-fit: cover;
+    margin: 1px 0;
+    object-position: 100% 40%;
+    width: 100vw;
+    height: 350px;
+    filter: blur(2px);
+}
+#presentacion-texto {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100vw;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.1),rgba(255, 255, 255, .8),rgba(255, 255, 255, 0.1));
+    text-shadow: 0px 0px 2px #a5a5a5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.fotosDeClientes:not(#hornoDeFondo) {
+    display: none;
+}
+#presentacion-texto p {
+    width: 90vw;
+    margin: 0 auto;
+    font-size: 19px;
+    padding: 10px;
+    font-weight: bold;
+}
+    /* FIN PRESENTACION */
+
+    /* INICIO PRODUCTOS */
+#productos {
+    visibility: hidden;
+}
+.titulosCompartidos {
+    display: none;
+}
+.ambosHornos {
+    display: none;
+}
+.hornoDe4, .hornoDe10 {
+    margin-top: 40px;
+    text-align: center;
+}
+.cabecera {
+    text-align: center;
+    font-size: 30px;
+    padding: 7px 0;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 7px #000;
+    background: linear-gradient(to right, #fe000056, #fe0000,#fe000056);
+}
+
+.tituloDelHorno {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 23px;
+    padding: 7px 0;
+    color: #ffffff;
+    text-shadow: 0 0 7px #000;
+    background: linear-gradient(to right, #00000056,#000000,#00000056);
+}
+
+
+.imgDeHorno {
+    margin: 20px auto;
+    width: 90vw;
+}
+.estructuraGralBig {
+    display: none;
+}
+.estructuraGralPantallaChica {
+    width: 94vw;
+    margin: 0 auto 15px auto;
+    text-align: center;
+}
+.estructuraGralPantallaChica h3 {
+    padding: 5px 0;
+    background: rgb(156, 156, 156);
+}
+.estructuraGralPantallaChica p {
+    padding: 5px 7px;
+    background: rgb(194, 194, 194);
+}
+
+
+.estructuraGralPantallaGrande {
+    display: none;
+}
+.estructuraGralPantallaGrande h3 {
+    padding: 5px 0;
+    background: rgb(156, 156, 156);
+}
+.estructuraGralPantallaGrande p {
+    padding: 5px 7px;
+    background: rgb(194, 194, 194);
+}
+
+
+.btnExp {
+    margin: 3px 0;
+    padding: 4px 6px;
+    border-top: none;
+    border-left: none;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+.btnExp:active {
+    background: #ffffff;
+    border: none;
+}
+/* TABLA DE ESPECIFICACIONES TECNICAS DE HORNO DE 4 y DE 10*/
+
+.tablaDe4, .tablaDe10 {
+    text-align: left;
+    margin: 0 auto;
+}
+.info {
+    text-align: center;
+}
+
+th {
+    background: #c00000; 
+    text-align: center;
+}
+table {
+    margin: 0 auto;
+}
+
+#tabla1, #tabla1-10 {
+    background: #c00000;
+    color: #fff;
+    text-align: center;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.fichaTecnicaHorno4, .fichaTecnicaHorno10 {
+    margin: 0 auto;
+    font-size: 0;
+    transition: .5s;
+    width: 90vw;
+}
+.expandir {
+    font-size: 16px;
+    transition: .5s;
+    padding: 5px 0;
+    border-right: 2px solid rgb(179, 179, 179);
+    border-bottom: 2px solid rgb(179, 179, 179);
+    border-radius: 0 0 30px 0;
+}
+.fichaTecnicaHornos i {
+    padding: 7px;
+    font-style: italic;
+}
+
+.especificaciones {
+    width: 95vw;
+    /* height: 60px; */
+}
+#celdaDeBtn {
+    height: 40px ;
+}
+
+
+/* .fichaTecnicaHorno4 {
+    display: none;
+} */
+
+
+    /* FIN TABLAS DE ESPECIFICACIONES TECNICAS */
+    /* FIN PRODUCTOS */
+
+
+    /* INICIO CONTACTO */
+    
+.contacto {
+    background: linear-gradient(to right, #fe000056,#fe0000,#fe000056);
+    text-align: center;
+    padding: 15px 0;
+    width: 100vw;
+}
+
+.contacto-mapa {
+    margin: 0 auto;
+}
+#mapa {
+    width: 80vw;
+    height: 80vw;
+}
+.contacto .contacto-datos > span {
+    width: 80vw;
+}
+.contacto-flexContainer {
+    display: flex;
+    justify-content:left;
+    align-items:left;
+}
+
+.contacto-flexContainer .contacto-flexItem2 {
+    text-align: left;
+    margin-left: 3vw;
+}
+
+.contacto-flexItem2 {
+    justify-content: center;
+    align-content: center;
+    width: 80vw;
+}
+
+.seteoDeTexto {
+    /* text-align: left; */
+    font-family: 'Raleway', sans-serif;
+    font-size: 19px;
+    letter-spacing: 1px;
+    /* width: 60vw; */
+    font-weight: bolder;
+}
+#letraChica{
+    font-size: 13px;
+    font-family: 'Raleway', sans-serif;
+}
+.iconos {
+    width: 40px;
+    margin-left: 5vw;
+    float: left;
+}
+.a:link, .a:visited {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    margin-left: 3vw;
+    transition: .9s;
+    letter-spacing: 2px;
+}
+/* .a:hover {
+    font-size: 110%;
+    color: #fff;
+    text-shadow: 0 1px 2px #000;
+    transition: .4s;
+} */
+.a-eMail:link, .a-eMail:visited {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    margin-left: 2vw;
+    /* transition: .9s; */
+}
+/* .a-eMail:hover {
+    font-size: 110%;
+    color: #fff;
+    text-shadow: 0 1px 2px #000;
+    transition: .4s;
+} */
+.contacto-lineaDivisoria {
+    height: 2px;
+    width: 100vw;
+    background:linear-gradient(to right, rgba(255, 255, 255, 0),#fff,rgba(255, 255, 255, 0));
+    margin: 10px 0;
+}
+
+    /* FIN CONTACTO */
+
+    /* INICIO FOOTER */
+.footer-lineaDivisoria {
+    height: 3px;
+    background: linear-gradient(to right, #fe0000,#000,#fe0000)
+
+}
+.footer-rrss {
+    background: #fe0000;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icoRRSS {
+    width: 30px;
+    /* filter:grayscale(100%); */
+    transition: .5s;
+}
+.footer-flexItem {
+    margin: 0 7vw;
+}
+/* .icoRRSS:hover {
+    filter: none;
+    width:35px;
+    transition: .5s;
+} */
+.footer-info {
+    background: rgb(44, 44, 44);
+    height: 50px;
+    color: rgb(192, 192, 192);
+    font-size: 13px;
+    text-align: center;
+}
+.footer-texto {
+    padding: 10px 0;
+}
+.footer a:link,  .footer a:visited{
+    color:#c00000
+
+}
+    /* FIN FOOTER */
+
+    /* INICIO LOGO WHATSAPP */
+#logoWhatsapp {
+    width: 55px;
+    filter: saturate(2);
+    position: fixed;
+    bottom: 12px;
+    right: 6vw;
+    opacity: .5;
+    transition: .7s;
+}
+/* #logoWhatsapp:hover {
+    opacity: 1;
+    transition: .3s;
+} */
+    /* FIN LOGO WHATSAPP */
+
+/* FIN 320PX */
+
+
+
+/* INICIO LANDSCAPE */
+@media only screen and (orientation: landscape) {
+    #logoDelNav {
+        width:160px;
+    }
+
+        /* INICIO MENU ABSOLUTO */
+        /* MENU OCULTO */
+    .menuAbsolutoOculto {
+        font-size: 5vw;
+    }
+    .menuAbsolutoOculto li {
+        margin: -10px auto;
+        padding: 4vw 0;
+    }
+        /* FIN MENU OCULTO */
+        /* MENU OPEN */
+    .menuAbsoluto {
+        font-size: 5vw;
+    }
+    .menuAbsoluto li {
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+        /* FIN MENU OPEN */
+        /* FIN MENU ABSOLUTO*/
+
+        /* INICIO MENU DESPLEGABLE */
+    .menuDesplegable {
+        top: 19px;
+    }
+
+    /* INICIO HEADER */
+    #logoayd {
+        width: 65vw;
+    }
+        /* FIN HEADER */
+
+        /* INICIO PRESENTACION (nosotros)*/
+    
+    #hornoDeFondo {
+        object-position: 0 30%;
+    }
+    
+    #presentacion-texto p {
+        font-size: 23px;
+    }
+        /* FIN PRESENTACION */
+
+        /* INICIO PRODUCTOS */
+    .hornoDe4, .hornoDe10 {
+        text-align: center;
+    }
+    .cabecera {
+        font-size: 35px;
+    }
+    .tituloDelHorno {
+        font-size: 25px;
+    }
+    .imgDeHorno {
+        width: 50vw;
+    }
+    .hornos {
+        margin: 0 auto;
+    }
+
+    .estructuraGral h3 {
+        display: table-row;
+        line-height: 8vw;
+        height: 8vw;
+    }
+    .estructuraGral p {
+        font-weight: bold;
+        height: 25vw;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .td1 {
+        width: 80%;
+    }
+    .produccionProm {
+        text-align: center;
+    }
+      /* TABLA DE ESPECIFICACIONES TECNICAS DE HORNO DE 4 y DE 10*/
+        /* FIN TABLAS DE ESPECIFICACIONES TECNICAS */
+        /* FIN PRODUCTOS */
+
+
+        /* INICIO CONTACTO */
+ 
+    #mapa {
+        width: 85vw;
+        height: 60vw;
+    }
+
+    .seteoDeTexto {
+        font-size: 22px;
+    }
+    #letraChica{
+        font-size: 16px;
+    }
+    .iconos {
+        width: 45px;
+        margin-left: 17vw;
+    }
+    .a:link, .a:visited {
+        font-size: 19px;
+    }
+     .a-eMail:link, .a-eMail:visited {
+        font-size: 19px;
+    }
+        /* FIN CONTACTO */
+
+        /* INICIO FOOTER */
+
+    .icoRRSS {
+        width: 40px;
+    }
+        /* FIN FOOTER */
+}
+/* FIN LANDSCAPE */
+
+
+
+/* INICIO 768 * 1024 */
+@media only screen and (min-width: 768px) {
+
+    .menuDeNav {
+        display:none;
+    }
+    .nav {
+        height: 100px;
+        background: linear-gradient(to bottom,#fe0000, #00000000);
+        position:sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    #logoDelNav {
+        position: absolute;
+        width:220px;
+        left: 3vw;
+        top:15px;    
+        cursor: pointer;
+        transition: .3s;
+    }
+    /* #logoDelNav:hover {
+        filter: drop-shadow(0 0 10px #ffffff);
+        transition: .3s;
+    } */
+
+        /* INICIO MENU ABSOLUTO */
+        /* MENU OCULTO */
+    .menuAbsolutoOculto {
+        position: fixed;
+        left:-150vw;
+        z-index: 10000;
+        background: linear-gradient(to right, #c00000,#c00000,#fe000000);
+        width: 100vw;
+        height: 100%;
+        font-size: 7vw;
+        font-weight: lighter;
+        transition: .5s;
+    }
+    .menuAbsolutoOculto li {
+        margin: 60px auto;
+        padding: 8vw 0;
+        padding-left: 4vw;
+        transition: .5s;
+    }
+    .menuAbsolutoOculto ul a {
+        text-decoration: none;
+        color: rgb(212, 212, 212);
+        transition: .5s;
+    }
+        /* FIN MENU OCULTO */
+        /* MENU OPEN */
+    .menuAbsoluto {
+        position: fixed;
+        left:0;
+        z-index: 10000;
+        background: linear-gradient(to right, #c00000,#c00000,#fe000000);
+        width: 86vw;
+        height: 100%;
+        font-size: 7vw;
+        font-weight: lighter;
+        -webkit-transform: translate(0);
+        -moz-transform: translate(0);
+        -o-transform: translate(0);
+        transform: translateZ(0);
+        transition: .7s;
+
+    }
+    /* .menuAbsoluto li {
+        margin: 50px auto;
+        padding: 5vw 0;
+        padding-left: 4vw;
+    }
+    .menuAbsoluto ul {
+        list-style-type: none;
+    }
+    .menuAbsoluto ul a {
+        text-decoration: none;
+        color: rgb(212, 212, 212);
+    }
+    .menuAbsoluto ul li:hover {
+        background: linear-gradient(to right, #fe0000,#fe0000,#fe000000);
+        transition: 1s;
+    } */
+        /* FIN MENU OPEN */
+        /* FIN MENU ABSOLUTO*/
+
+        /* INICIO MENU DESPLEGABLE */
+    .menuDesplegable {
+        position: relative;
+        width: 50px;
+        height: 30px;
+        top: 33px;
+        float: right;
+        margin-right: 30px;
+        cursor: pointer;
+    }
+    .contenedor .nav .menuDesplegable .subMenuDesplegable{
+        margin: 0 auto;
+        transition: .3s;    
+        background-color: #8f8f8f;
+        width: 5px;
+        height: 40px;
+        color: transparent;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    .contenedor .nav .menuDesplegable .subMenuDesplegable::after {
+        position:absolute;
+        width: 5px;
+        content: ".";    
+        background: #8f8f8f;
+        color: transparent;
+        height: 48px;
+        top: -4px;
+        left: 18px;
+        transition: .3s;
+    }
+    .contenedor .nav .menuDesplegable .subMenuDesplegable::before {
+        position:absolute;
+        width: 5px;
+        content: ".";
+        color: transparent;
+        background: #8f8f8f;
+        height: 48px;
+        right: 18px;
+        top: -4px;
+        transition: .3s;
+
+    }
+        /* FIN MENU DESPLEGABLE */
+
+        /* INICIO ANIMACION MENU DESPLEGABLE */
+    .contenedor .nav .menuDesplegable .open {
+        margin: 0 auto;
+        background-color: transparent;
+        color: transparent;
+        width: 4px;
+        height: 30px;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        transition: .3s;    
+    }
+    /* .contenedor .nav .menuDesplegable:hover > .open{
+        transition: .3s;
+        background: #000;
+    } */
+    .contenedor .nav .menuDesplegable .open::before {
+        position:absolute;
+        content: ".";
+        background: #000;
+        color: transparent;
+        right: -4px;
+        top: -10px;
+        height: 48px;
+        transition: .3s;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    .contenedor .nav .menuDesplegable .open::after {
+        position:absolute;
+        content: ".";    
+        background: #000;
+        color: transparent;
+        height: 48px;
+        left: 4px;
+        top: -10px;
+        transition: .3s;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    /* .contenedor .nav .menuDesplegable:hover > .open{
+        transition: .8s;
+        background: transparent;
+    }
+    .contenedor .nav .menuDesplegable:hover > .open::after {
+        transition: .8s;
+        background: #000;
+    }
+    .contenedor .nav .menuDesplegable:hover > .open::before{
+        transition: .8s;
+        background: #000;
+    } */
+        /* FIN ANIMACION MENU DESPLEGABLE */
+
+        /* INICIO HEADER */
+    .contenedorDeImagen {
+        /* height: 100vw;         */
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #logoayd {
+        width: 95vw;
+        vertical-align: middle;
+        margin-bottom: 30vw;
+    }
+
+        /* FIN HEADER */
+
+        /* INICIO PRESENTACION (nosotros)*/
+    #presentacion {
+        width: 100vw;
+        height: 700px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    #hornoDeFondo {
+        object-fit: cover;
+        margin: 1px 0;
+        object-position: 100% 80%;
+        width: 80vw;
+        height: 690px;
+        filter: blur(4px);
+    }
+    #presentacion-texto {
+        width: 100vw;
+        height: 460px;
+        /* line-height: 50px; */
+        /* background-color:rgba(255, 255, 255, 0.459); */
+    }
+    
+    #presentacion-texto p {
+        /* box-sizing: content-box; */
+        width: 95vw;
+        font-size: 28px;
+        padding: 10px;
+    }
+        /* FIN PRESENTACION */
+
+        /* INICIO PRODUCTOS */
+    #productos {
+        visibility: hidden;
+    }
+    .hornoDe4, .hornoDe10 {
+        width: 100vw;
+        margin-top: 40px;
+        text-align: center;
+        margin-right: 15px;
+    }
+    .cabecera {
+        text-align: center;
+        font-size: 35px;
+        padding: 7px 0;
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 0 0 7px #000;
+        background: linear-gradient(to right, #fe000056, #fe0000,#fe000056);
+    }
+    .tituloDelHorno {
+        margin-top: 5px;
+        text-align: center;
+        font-size: 25px;
+        padding: 7px 0;
+        color: #ffffff;
+        text-shadow: 0 0 7px #000;
+        background: linear-gradient(to right, #00000056,#000000,#00000056);
+    }
+    .imgDeHorno {
+        margin: 20px auto;
+        width: 55vw;
+    }
+    .hornos {
+        float: left;
+    }
+    .estructuraGral {
+        width: 41vw;
+        font-size: 19px;
+        margin: 220px 10px 15px auto;
+    }
+      
+    #expandirInformacion {
+        background: #818181;
+        font-size: 16px;
+        float: right;
+        margin-right: 15px;
+        padding: 4px;
+        border: none;
+        font-weight: bold;
+    }
+    #expandirInformacion:active {
+        background: #ffffff;
+    }
+    /* TABLA DE ESPECIFICACIONES TECNICAS DE HORNO DE 4 y DE 10*/
+
+    .especificaciones {
+        font-size: 22px;
+    }
+    .hornoDe4 th, .hornoDe10 th {
+        text-align: center;
+        left: 10px;
+        font-size: 19px;
+        background: linear-gradient(to bottom, #fe0000, #fe000056);
+        color: #ffffff;
+        font-weight: lighter;
+        text-shadow: 0 0 6px #000;
+    }
+    .estructuraGralPantallaChica {
+        width: 42vw;
+        margin-right: 10px;
+        margin-top: 140px;
+    }
+ 
+    /* .fichaTecnicaHorno4 {
+        display: none;
+    } */
+
+
+        /* FIN TABLAS DE ESPECIFICACIONES TECNICAS */
+        /* FIN PRODUCTOS */
+
+
+        /* INICIO CONTACTO */
+
+    .contacto {
+        background: linear-gradient(to right, #fe000056,#fe0000,#fe000056);
+        text-align: center;
+        padding: 15px 0;
+        width: 100vw;
+    }
+    .contacto-mapa {
+        margin: 0 auto;
+    }
+    #mapa {
+        width: 85vw;
+        height: 60vw;
+    }
+    .contacto-flexContainer {
+        display: flex;
+        align-items:center;
+    }
+    .contacto-flexItem1 {
+        align-self:center;
+    }
+    .seteoDeTexto {
+        font-family: 'Raleway', sans-serif;
+        /* margin-left: 6vw; */
+        font-size: 27px;
+        letter-spacing: 1px;
+        width: 60vw;
+        font-weight: bolder;
+    }
+    #letraChica{
+        font-size: 18px;
+        font-family: 'Raleway', sans-serif;
+    }
+    .iconos {
+        width: 58px;
+        margin-left: 10vw;
+        float: left;
+    }
+    .a:link, .a:visited {
+        text-decoration: none;
+        font-size: 24px;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        margin-left: 6vw;
+        transition: .9s;
+        letter-spacing: 2px;
+    }
+    /* .a:hover {
+        font-size: 110%;
+        color: #fff;
+        text-shadow: 0 1px 2px #000;
+        transition: .4s;
+    } */
+    .a-eMail:link, .a-eMail:visited {
+        font-size: 25px;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        margin-left: 6vw;
+        /* transition: .9s; */
+    }
+    /* .a-eMail:hover {
+        font-size: 110%;
+        color: #fff;
+        text-shadow: 0 1px 2px #000;
+        transition: .4s;
+    } */
+    .contacto-lineaDivisoria {
+        height: 2px;
+        width: 100vw;
+        background:linear-gradient(to right, rgba(255, 255, 255, 0),#fff,rgba(255, 255, 255, 0));
+        margin: 10px 0;
+    }
+
+        /* FIN CONTACTO */
+
+        /* INICIO FOOTER */
+    .footer-lineaDivisoria {
+        height: 3px;
+        background: linear-gradient(to right, #fe0000,#000,#fe0000)
+
+    }
+    .footer-rrss {
+        background: #fe0000;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icoRRSS {
+        width: 45px;
+        /* filter:grayscale(100%); */
+        transition: .5s;
+    }
+    .footer-flexItem {
+        margin: 0 7vw;
+    }
+    /* .icoRRSS:hover {
+        filter: none;
+        width:35px;
+        transition: .5s;
+    } */
+    .footer-info {
+        background: rgb(44, 44, 44);
+        height: 50px;
+        color: rgb(192, 192, 192);
+        font-size: 13px;
+    }
+    .footer-texto {
+        padding-top: 10px;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+        /* FIN FOOTER */
+
+        /* INICIO LOGO WHATSAPP */
+    #logoWhatsapp {
+        width: 70px;
+        filter: saturate(2);
+        position: fixed;
+        bottom: 18px;
+        right: 4vw;
+        opacity: .5;
+        transition: .7s;
+    }
+    /* #logoWhatsapp:hover {
+        opacity: 1;
+        transition: .3s;
+    } */
+        /* FIN LOGO WHATSAPP */
+}
+/* FIN 768 * 1024 */
+
+/* INICIO 800 * 600 */
+@media only screen and (min-width: 800px) {
+    /* INICIO GRID */
+    .contenedor {
+        display: grid;
+        grid-template-columns: 400px 400px;
+        grid-template-areas: 
+        "nav        nav"
+        "header     header"
+        "nosotros   nosotros"
+        "tituloDe4  tituloDe4"
+        "hornoDe4   tablaDe4"
+        "hornoDe4   tablaDe4"
+        "tituloDe10 tituloDe10"
+        "hornoDe10  tablaDe10"
+        "hornoDe10  tablaDe10"
+        "contacto   contacto"
+        "footer     footer";
+    }
+        .contenedor .nav {
+        grid-area: nav;
+    }
+    .contenedor .header {
+        grid-area: header;
+    }
+    .contenedor .nosotros {
+        grid-area: nosotros;
+    }
+    .contenedor .tituloDe4 {
+        grid-area: tituloDe4;
+    }
+    .contenedor .hornoDe4 {
+        grid-area: hornoDe4;
+    }
+    .contenedor .tablaDe4 {
+        grid-area: tablaDe4;
+    }
+    .contenedor .tituloDe10 {
+        grid-area: tituloDe10;
+    }
+    .contenedor .hornoDe10 {
+        grid-area: hornoDe10;
+    }
+    .contenedor .tablaDe10 {
+        grid-area: tablaDe10;
+    }
+    .contenedor .contacto {
+        grid-area: contacto;
+    }
+    .contenedor .footer {
+        grid-area: footer;
+    }
+    /* FIN GRID */
+
+    .nav {
+        height: 50px;
+        width: 100vw;
+        background: linear-gradient(to bottom,#fe0000, #00000000);
+        position:sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    #logoDelNav {
+        position: absolute;
+        width: 17vw;
+        left: 3vw;
+        top:7px;    
+        cursor: pointer;
+        transition: .3s;
+    }
+    #logoDelNav:hover {
+        filter: drop-shadow(0 0 10px #ffffff);
+        transition: .3s;
+    }
+    .menuDeNav {
+        text-align: center;
+        display: block;
+        margin-left: 22vw;
+        list-style-type: none;
+        line-height: 30px;
+    }
+    .menuDeNav li {
+      font-size: 13px;
+      font-weight: normal;
+      color: rgb(71, 71, 71);
+      background: rgba(254, 0, 0, 0.2);
+      text-align: center;
+      vertical-align: middle;
+      width: 60px;
+      height: 3px;
+      line-height: 5px;
+      float: left;
+      margin-right: 10px;
+      padding: 25px;
+      border-radius: 0 0 15px 15px;
+      transition: .5s;
+    }
+    .menuDeNav li:hover {
+      background: #fe0000;
+      color: #000;
+      font-size: 15px;
+      text-align: center;
+      /* border-top: none !important; */
+      transition: 0.3s;
+      box-shadow: 0 2px 4px #fff, 2px 0 4px #fff, -2px 0 4px #fff;
+    }    
+     
+    /* INICIO MENU ABSOLUTO */
+     
+    /* MENU OCULTO */
+    .menuAbsolutoOculto {
+        display: none;
+    }
+        /* FIN MENU OCULTO */
+        /* MENU OPEN */
+    .menuAbsoluto {
+        display: none;
+    }
+    
+    /* INICIO MENU DESPLEGABLE */
+    .menuDesplegable {
+        display: none;
+    }    
+        /* INICIO HEADER */
+    .contenedorDeImagen {
+        width: 100vw;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    #logoayd {
+        width: 60vw;
+        vertical-align: middle;
+        margin-bottom: 30vw;
+        margin-top: 30px;
+    }
+    
+        /* FIN HEADER */
+    
+        /* INICIO PRESENTACION (nosotros)*/
+    #presentacion {
+        /* border: 3px solid hotpink; */
+        display: flex;
+        background: transparent;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100vw    ;
+        margin-bottom: -100px;
+        border: none;
+    }
+    #hornoDeFondo {
+        object-fit: cover;  
+        object-position: 100% 40%;
+        width: 30vw;
+        height:400px;
+        filter: blur(1px);
+    }
+    .nosotros #presentacion .fotosDeClientes {
+        display:initial;
+    }
+    .fotos {
+        position: relative;
+        width: 100vw;
+        left: 0px;
+    }
+    #fotoDeFacturas, #fotoDeMedialunas {
+        position:absolute;
+        z-index: -1;
+        filter: blur(2px);
+        width: 20vw;
+    }
+    #fotoDeFacturas {
+        left: 130px;
+        top: 30px;
+    }
+    #fotoDeMedialunas { 
+        right: 150px;
+        bottom: 30px;
+    }
+
+    #presentacion-texto {
+       height: 300px;
+       justify-content: center;
+    }
+    .nosotros #presentacion-texto > p {
+        width: 60%;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .fotosDeClientes {
+        display: inline;
+    }
+    
+        /* FIN PRESENTACION */
+    
+        /* INICIO PRODUCTOS */
+    .hornoDe4, .hornoDe10 {
+        margin-top: 40px;
+        text-align: center;
+    }
+    .cabecera {
+        text-align: center;
+        font-size: 28px;
+        width: 100vw;
+        padding: 7px 0;
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 0 0 7px #000;
+        background: linear-gradient(to right, #fe000056, #fe0000,#fe000056);
+    }
+    .tituloDelHorno {
+        width: 100vw;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 24px;
+        padding: 7px 0;
+        color: #ffffff;
+        text-shadow: 0 0 7px #000;
+        background: linear-gradient(to right, #00000056,#000000,#00000056);
+    }
+    .imgDeHorno {
+        margin: 20px 0 20px 30px;
+        width: 35vw;
+    }
+    .estructuraGralPantallaChica {
+        display: none;
+    }
+    .tituloDe10 {
+        margin-top: 100px;
+    }
+    .estructuraGralPantallaGrande {
+        display: inline-block;
+        width: 40vw;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 15px;
+        margin: 30px 0;
+        /* margin-right: 100vw; */
+    }
+    .estructuraGralPantallaGrande h3 {
+        height: 3vw;
+        line-height: 3vw;
+    }
+    .estructuraGralPantallaGrande p {
+        display: flex;
+        align-items: center;
+        height: 10vw;
+        padding: 5px 7px;
+        background: rgb(194, 194, 194);
+    }
+    .btnExp {
+        font-size: 13px;
+        margin: 3px 0;
+        width: 28vw;
+        padding: 4px 6px;
+        border-top: none;
+        border-left: none;
+        border-right: 3px solid #000;
+        border-bottom: 3px solid #000;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        user-select: none;
+        transition: .5s;
+    }
+    .btnExp:active {
+        background: #ffffff;
+        border: none;
+    }
+    /* TABLA DE ESPECIFICACIONES TECNICAS DE HORNO DE 4 y DE 10*/
+    
+    .tablaDe4, .tablaDe10 {
+        display: flex;
+        width: 40vw;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+    }
+    .tablaDe4 table, .tablaDe10 table {
+        width: 40vw;
+    }
+    .fichaTecnicaHorno4, .fichaTecnicaHorno10 {
+        font-size: 0;
+        transition: .5s;
+        width: 45vw;
+        text-align: center;
+    }
+
+    .td1 {
+        text-align: left;
+    }
+    
+    th {
+        color: #fff;
+        font-weight: lighter;
+    }
+
+    .hornoDe4 table, .hornoDe4 tr, .hornoDe4 th, .hornoDe4 td, .hornoDe10 table, .hornoDe10 tr, .hornoDe10 th, .hornoDe10 td {
+        border: 1px solid #fe0000;
+        border-collapse: collapse;
+    }
+    .hornoDe4 table {
+        width: 40vw;
+    }
+    .hornoDe4 table, .hornoDe10 table{
+        margin: 7px auto;
+        border: 2px solid #fe0000;
+        background: rgb(221, 220, 220);
+        justify-self: center;
+        align-self: center;
+    }
+    .hornoDe4 th, .hornoDe10 th {
+        text-align: center;
+        left: 10px;
+        font-size: 17px;
+        background: linear-gradient(to bottom, #fe0000, #fe000056);
+        color: #ffffff;
+        font-weight: lighter;
+        text-shadow: 0 0 6px #000;
+    }
+    .expandir {
+        font-size: 14px;
+        transition: .5s;
+        padding: 5px 0;
+        border-right: 2px solid rgb(179, 179, 179);
+        border-bottom: 2px solid rgb(179, 179, 179);
+        border-radius: 0 0 30px 0;
+    }
+    #tabla1, #tabla1-10 {
+        width: 40vw;
+    }
+
+    #celdaDeBtn {
+        height: 40px ;
+    }
+    .tablaDe10 .estructuraGralPantallaGrande {
+        /* margin-top: -100px; */
+        position: static;
+    }
+
+
+    
+        /* FIN TABLAS DE ESPECIFICACIONES TECNICAS */
+        /* FIN PRODUCTOS */
+    
+    
+        /* INICIO CONTACTO */
+        
+        .contacto {
+            background: linear-gradient(to right, #fe000056,#fe0000,#fe000056);
+            text-align: center;
+            padding: 70px 0;
+            width: 100vw;
+            height: 230px;
+        }
+        .contacto-mapa {
+            margin: 0 auto;
+        }
+        #mapa {
+            width: 40vw;
+            height: 35vw;
+            float: left;
+            margin-left: 30px;
+            margin-top: -30px;
+        }
+        .contacto-flexContainer {
+            display: flex;
+            }
+        .contacto-flexItem1 {
+            align-self:center;
+        }
+        .contacto-datos {
+            width: 40vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: -35px;
+
+        }
+        .contacto-datos .iconos {
+            justify-self:center;
+        }
+        .seteoDeTexto {
+            text-align: left;
+            justify-content: center;
+            font-family: 'Raleway', sans-serif;
+            /* margin-left: 2vw; */
+            font-size: 16px;
+            letter-spacing: 1px;
+            width: 45vw;
+            font-weight: bolder;
+            text-justify:newspaper;
+    
+        }
+        .seteoDeTexto:hover {
+            text-shadow: none;
+    
+        }
+        #letraChica{
+            font-size: 14px;
+            font-family: 'Raleway', sans-serif;
+        }
+        .iconos {
+            width: 4.5vw;
+            margin-left: 1vw;
+            margin-bottom: 2vw;
+            align-content: center;
+            /* float: right; */
+        }
+        .a:link, .a:visited {
+            text-decoration: none;
+            font-size: 16px;
+            color: rgb(0, 0, 0);
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;
+            margin-left: 2vw;
+            transition: .9s;
+            letter-spacing: 2px;
+        }
+        .a:hover {
+            font-size: 18px;
+            color: #fff;
+            text-shadow: none;
+            transition: .4s;
+        }
+        .a-eMail:link, .a-eMail:visited {
+            font-size: 18px;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;
+            margin-left: 2vw;
+            transition: .9s;
+        }
+        .a-eMail:hover {
+            font-size: 19px;
+            color: #fff;
+            text-shadow: none;
+            transition: .4s;
+        }
+        .contacto-lineaDivisoria {
+            height: 2px;
+            width: 50vw;
+            background:linear-gradient(to right, rgba(255, 255, 255, 0),#fff,rgba(255, 255, 255, 0));
+            margin: 10px 0;
+        }    
+        /* FIN CONTACTO */
+    
+        /* INICIO FOOTER */
+    .footer-lineaDivisoria {
+        width: 100vw;
+        height: 3px;
+        background: linear-gradient(to right, #fe0000,#000,#fe0000)
+    
+    }
+    .footer-rrss {
+        background: #fe0000;
+        width: 100vw;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icoRRSS {
+        width: 40px;
+        filter:grayscale(60%);
+        transition: .5s;
+    }
+    .footer-flexItem {
+        margin: 0 7vw;
+    }
+    .icoRRSS:hover {
+        filter: none;
+        width:48px;
+        transition: .5s;
+    }
+    .footer-info {
+        width: 100vw;
+        background: rgb(44, 44, 44);
+        height: 70px;
+        color: rgb(192, 192, 192);
+        font-size: 14px;
+        text-align: center;
+    }
+    .footer-texto {
+        padding: 10px 0;
+    }
+        /* FIN FOOTER */
+    
+        /* INICIO LOGO WHATSAPP */
+    #logoWhatsapp {
+        width: 6vw;
+        filter: saturate(2);
+        position: fixed;
+        bottom: 25px;
+        right: 3vw;
+        opacity: .5;
+        transition: .7s;
+    }
+    #logoWhatsapp:hover {
+        width: 6.7vw;
+        opacity: 1;
+        transition: .5s;
+    } 
+         /* FIN LOGO WHATSAPP */
+    
+         /* FIN 800 X 600 */
+}
+
+
+/* INICIO 1024 * 768 */
+@media only screen and (min-width: 1024px) {
+    /* INICIO GRID */
+    .contenedor {
+        display: grid;
+        grid-template-columns: 512px 512px;
+        grid-template-areas: 
+        "nav        nav"
+        "header     header"
+        "nosotros   nosotros"
+        "tituloDe4  tituloDe4"
+        "hornoDe4   tablaDe4"
+        "hornoDe4   tablaDe4"
+        "tituloDe10 tituloDe10"
+        "hornoDe10  tablaDe10"
+        "hornoDe10  tablaDe10"
+        "contacto   contacto"
+        "footer     footer";
+    }
+        .contenedor .nav {
+        grid-area: nav;
+    }
+    .contenedor .header {
+        grid-area: header;
+    }
+    .contenedor .nosotros {
+        grid-area: nosotros;
+    }
+    .contenedor .tituloDe4 {
+        grid-area: tituloDe4;
+    }
+    .contenedor .hornoDe4 {
+        grid-area: hornoDe4;
+    }
+    .contenedor .tablaDe4 {
+        grid-area: tablaDe4;
+    }
+    .contenedor .tituloDe10 {
+        grid-area: tituloDe10;
+    }
+    .contenedor .hornoDe10 {
+        grid-area: hornoDe10;
+    }
+    .contenedor .tablaDe10 {
+        grid-area: tablaDe10;
+    }
+    .contenedor .contacto {
+        grid-area: contacto;
+    }
+    .contenedor .footer {
+        grid-area: footer;
+    }
+    /* FIN GRID */
+
+    .nav {
+        height: 60px;
+        width: 100vw;
+        background: linear-gradient(to bottom,#fe0000, #00000000);
+        position:sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    #logoDelNav {
+        position: absolute;
+        /* width:200px; */
+        /* height: 50px; */
+        width: 150px;
+        left: 3vw;
+        top:12px;    
+        cursor: pointer;
+        transition: .3s;
+    }
+    #logoDelNav:hover {
+        filter: drop-shadow(0 0 10px #ffffff);
+        transition: .3s;
+    }
+    .menuDeNav {
+        text-align: center;
+        padding: 0;
+        display: block;
+        margin-left: 22vw;
+        list-style-type: none;
+        line-height: 30px;
+    }
+    .menuDeNav li {
+      font-size: 17px;
+      font-weight: normal;
+      color: rgb(71, 71, 71);
+      /* box-shadow: 2px solid rgb(187, 187, 187); */
+      background: rgba(254, 0, 0, 0.2);
+      text-align: center;
+      vertical-align: middle;
+      width: 100px;
+      height: 15px;
+      line-height: 15px;
+      float: left;
+      margin-right: 10px;
+      padding: 25px;
+      border-radius: 0 0 15px 15px;
+      transition: .5s;
+    }
+    .menuDeNav li:hover {
+      background: #fe0000;
+      color: #000;
+      font-size: 20px;
+      text-align: center;
+      border-top: none !important;
+      transition: 0.3s;
+      box-shadow: 0 2px 4px #fff, 2px 0 4px #fff, -2px 0 4px #fff;
+    }    
+     
+    /* INICIO MENU ABSOLUTO */
+     
+    /* MENU OCULTO */
+    .menuAbsolutoOculto {
+        display: none;
+    }
+        /* FIN MENU OCULTO */
+        /* MENU OPEN */
+    .menuAbsoluto {
+        display: none;
+    }
+    
+    /* INICIO MENU DESPLEGABLE */
+    .menuDesplegable {
+        display: none;
+    }    
+        /* INICIO HEADER */
+    .contenedorDeImagen {
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    #logoayd {
+        width: 700px;
+        vertical-align: middle;
+        margin-bottom: 30vw;
+        margin-top: 30px;
+    }
+    
+        /* FIN HEADER */
+    
+        /* INICIO PRESENTACION (nosotros)*/
+    #presentacion {
+        /* border: 3px solid hotpink; */
+        display: flex;
+        background: transparent;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100vw;
+        margin-bottom: 100px;
+        border: none;
+    }
+    .nosotros #presentacion .fotosDeClientes {
+        display:initial;
+    }
+    .fotos {
+        position: relative;
+        width: 100vw;
+        left: 0px;
+    }
+    #fotoDeFacturas, #fotoDeMedialunas {
+        position:absolute;
+        z-index: -1;
+        filter: blur(2px);
+        width: 20vw;
+    }
+    #fotoDeFacturas {
+        left: 190px;
+        top: 30px;
+    }
+    #fotoDeMedialunas {
+        right: 190px;
+        bottom: 30px;
+    }
+    #hornoDeFondo {
+        object-fit: cover;  
+        object-position: 100% 40%;
+        width: 35vw;
+        height: 500px;
+        filter: blur(4px);
+    }
+    #presentacion-texto {
+        width: 100vw;
+       height: 350px;
+       justify-content: center;
+    }
+    .nosotros #presentacion-texto > p {
+        width: 60%;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .fotosDeClientes {
+        display: inline;
+    }
+    
+        /* FIN PRESENTACION */
+    
+        /* INICIO PRODUCTOS */
+    .hornoDe4, .hornoDe10 {
+        margin-top: 40px;
+        text-align: center;
+    }
+    .cabecera {
+        text-align: center;
+        font-size: 39px;
+        width: 100vw;
+        padding: 7px 0;
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 0 0 7px #000;
+        background: linear-gradient(to right, #fe000056, #fe0000,#fe000056);
+    }
+    .tituloDelHorno {
+        width: 100vw;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 28px;
+        padding: 7px 0;
+        color: #ffffff;
+        text-shadow: 0 0 7px #000;
+        background: linear-gradient(to right, #00000056,#000000,#00000056);
+    }
+    .imgDeHorno {
+        margin: 20px 0 20px 30px;
+        width: 30vw;
+    }
+    .estructuraGralPantallaChica {
+        display: none;
+    }
+    .tituloDe10 {
+        margin-top: 100px;
+    }
+    .estructuraGralPantallaGrande {
+        display: inline-block;
+        width: 40vw;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 17px;
+        margin: 30px 0;
+        /* margin-right: 100vw; */
+    }
+    .estructuraGralPantallaGrande h3 {
+        height: 4vw;
+        line-height: 4vw;
+    }
+    .estructuraGralPantallaGrande p {
+        display: flex;
+        align-items: center;
+        height: 10vw;
+        /* line-height: 10vw; */
+        padding: 5px 7px;
+        background: rgb(194, 194, 194);
+    }
+    .btnExp {
+        margin: 3px 0;
+        padding: 4px 6px;
+        border-top: none;
+        border-left: none;
+        border-right: 3px solid #000;
+        border-bottom: 3px solid #000;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        user-select: none;
+    }
+    .btnExp:active {
+        background: #ffffff;
+        border: none;
+    }
+    /* TABLA DE ESPECIFICACIONES TECNICAS DE HORNO DE 4 y DE 10*/
+    
+    .fichaTecnicaHorno4, .fichaTecnicaHorno10 {
+        font-size: 0;
+        transition: .5s;
+        width: 40vw;
+        text-align: center;
+    }
+    .expandir {
+        font-size: 29px;
+        transition: .5s;
+        border-right: 3px solid rgb(179, 179, 179);
+        border-bottom: 3px solid rgb(179, 179, 179);
+        border-radius: 0 0 30px 0;
+    }
+    .td1 {
+        text-align: left;
+    }
+    
+    th {
+        color: #fff;
+        font-weight: lighter;
+    }
+    .btnExp {
+        font-size: 15px;
+        transition: .5s;
+        /* padding: 5px 0; */
+        /* background: rgb(156, 156, 156); */
+    }
+    .hornoDe4 table, .hornoDe4 tr, .hornoDe4 th, .hornoDe4 td, .hornoDe10 table, .hornoDe10 tr, .hornoDe10 th, .hornoDe10 td {
+        border: 1px solid #fe0000;
+        border-collapse: collapse;
+    }
+    .hornoDe4 table, .hornoDe10 table{
+        display:inline-table;
+        margin: 7px auto;
+        border: 2px solid #fe0000;
+        background: rgb(221, 220, 220)
+    }
+    .hornoDe4 th, .hornoDe10 th {
+        text-align: center;
+        left: 10px;
+        font-size: 17px;
+        background: linear-gradient(to bottom, #fe0000, #fe000056);
+        color: #ffffff;
+        font-weight: lighter;
+        text-shadow: 0 0 6px #000;
+    }
+    .expandir {
+        font-size: 14px;
+        /* display: flex; */
+        transition: .5s;
+        padding: 5px 0;
+        border-right: 2px solid rgb(179, 179, 179);
+        border-bottom: 2px solid rgb(179, 179, 179);
+        border-radius: 0 0 30px 0;
+    }
+    #tabla1, #tabla1-10 {
+        width: 40vw;
+    }
+    /* #tabla1 .especificaciones {
+        width: 50vw;
+        font-size: 30px; 
+        height: 60px;
+    } */
+    #celdaDeBtn {
+        height: 40px ;
+    }
+
+    
+        /* FIN TABLAS DE ESPECIFICACIONES TECNICAS */
+        /* FIN PRODUCTOS */
+    
+    
+        /* INICIO CONTACTO */
+        
+    .contacto {
+        background: linear-gradient(to right, #fe000056,#fe0000,#fe000056);
+        text-align: center;
+        padding: 70px 0;
+        width: 100vw;
+        height: 30vw;
+
+    }
+    .contacto-mapa {
+        margin: 0 auto;
+    }
+    #mapa {
+        width: 35vw;
+        height: 35vw;
+        float: left;
+        margin-left: 50px;
+    }
+    .contacto-flexContainer {
+        display: flex;
+        /* align-content: center; */
+        /* align-items:center; */
+        /* justify-content: left; */
+    }
+    .contacto-flexItem1 {
+        align-self:center;
+    }
+    .contacto-datos {
+        width: 500px;
+        /* height: 80px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: baseline;
+    }
+    .contacto-datos .iconos {
+        justify-self:baseline;
+        width: 60px;
+        margin-bottom: 0px;
+    }
+    .seteoDeTexto {
+        text-align: left;
+        justify-content: center;
+        font-family: 'Raleway', sans-serif;
+        /* margin-left: 2vw; */
+        font-size: 22px;
+        letter-spacing: 1px;
+        width: 45vw;
+        font-weight: bolder;
+        text-justify:inter-word;
+
+    }
+    .seteoDeTexto:hover {
+        text-shadow: none;
+
+    }
+    #letraChica{
+        font-size: 18px;
+        font-family: 'Raleway', sans-serif;
+    }
+    .iconos {
+        width: 5vw;
+        margin-left: 2vw;
+        margin-bottom: 5vw;
+        align-content: center;
+    }
+    .a:link, .a:visited {
+        text-decoration: none;
+        font-size: 20px;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        margin-left: 2vw;
+        transition: .9s;
+        letter-spacing: 2px;
+    }
+    .a:hover {
+        font-size: 22px;
+        color: #fff;
+        text-shadow: none;
+        transition: .4s;
+    }
+    .a-eMail:link, .a-eMail:visited {
+        font-size: 22px;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        margin-left: 2vw;
+        transition: .9s;
+    }
+    .a-eMail:hover {
+        font-size: 25px;
+        color: #fff;
+        text-shadow: none;
+        transition: .4s;
+    }
+    .contacto-lineaDivisoria {
+        height: 2px;
+        width: 50vw;
+        background:linear-gradient(to right, rgba(255, 255, 255, 0),#fff,rgba(255, 255, 255, 0));
+        margin: 10px 0;
+    }
+    
+        /* FIN CONTACTO */
+    
+        /* INICIO FOOTER */
+    .footer-lineaDivisoria {
+        width: 100vw;
+        height: 3px;
+        background: linear-gradient(to right, #fe0000,#000,#fe0000)
+    
+    }
+    .footer-rrss {
+        background: #fe0000;
+        width: 100vw;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icoRRSS {
+        width: 4vw;
+        filter:grayscale(60%);
+        transition: .5s;
+    }
+    .footer-flexItem {
+        margin: 0 7vw;
+    }
+    .icoRRSS:hover {
+        filter: none;
+        width:60px;
+        transition: .5s;
+    }
+    .footer-info {
+        width: 100vw;
+        display: flex;
+        background: rgb(44, 44, 44);
+        height: 80px;
+        color: rgb(192, 192, 192);
+        font-size: 18px;
+        align-items: center;
+    }
+    .footer-texto {
+        padding: 10px 0;
+        margin: 0 auto;
+    }
+        /* FIN FOOTER */
+    
+        /* INICIO LOGO WHATSAPP */
+    #logoWhatsapp {
+        width: 55px;
+        filter: saturate(2);
+        position: fixed;
+        bottom: 50px;
+        right: 3vw;
+        opacity: .5;
+        transition: .7s;
+    }
+    #logoWhatsapp:hover {
+        width: 65px;
+        opacity: 1;
+        transition: .5s;
+    } 
+         /* FIN LOGO WHATSAPP */
+}
+
+/* FIN 1600 x 900 */
+        
+@media only screen and (min-width: 1600px) {
+.contenedor {
+    display: grid;
+    grid-template-columns: 800px 800px;
+    grid-template-areas: 
+    "nav                            nav"
+    "header                         header"
+    "nosotros                       nosotros"
+    "tituloDe4                      tituloDe10"
+    "ambosHornos                    ambosHornos"
+    "tablaDe4                       tablaDe10"
+    "contacto                       contacto"
+    "footer                         footer";
+}
+
+    .ambosHornos {
+        grid-area: ambosHornos;
+    }
+    .nav {
+        height: 60px;
+        width: 100vw;
+        background: linear-gradient(to bottom,#fe0000, #00000000);
+        position:sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    #logoDelNav {
+        position: absolute;
+        width: 10vw;
+        left: 3vw;
+        top:12px;    
+        cursor: pointer;
+        transition: .3s;
+    }
+    #logoDelNav:hover {
+        filter: drop-shadow(0 0 10px #ffffff);
+        transition: .3s;
+    }
+    .menuDeNav {
+        text-align: center;
+        padding: 0;
+        display: block;
+        margin-left: 17vw;
+        list-style-type: none;
+        line-height: 30px;
+    }
+    .menuDeNav li {
+      font-size: 17px;
+      font-weight: normal;
+      color: rgb(71, 71, 71);
+      /* box-shadow: 2px solid rgb(187, 187, 187); */
+      background: rgba(254, 0, 0, 0.2);
+      text-align: center;
+      vertical-align: middle;
+      width: 100px;
+      height: 15px;
+      line-height: 15px;
+      float: left;
+      margin-right: 10px;
+      padding: 25px;
+      border-radius: 0 0 10px 10px;
+      transition: .5s;
+    }
+    .menuDeNav li:hover {
+      background: #fe0000;
+      color: #000;
+      font-size: 20px;
+      text-align: center;
+      border-top: none !important;
+      transition: 0.3s;
+      box-shadow: 0 2px 4px #fff, 2px 0 4px #fff, -2px 0 4px #fff;
+    }    
+
+        /* INICIO HEADER */
+    .contenedorDeImagen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #logoayd {
+        margin:4vw auto;
+    }
+    
+        /* FIN HEADER */
+    
+        /* INICIO PRESENTACION (nosotros)*/
+    #presentacion {
+        /* border: 3px solid hotpink; */
+        display: flex;
+        background: transparent;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100vw;
+        margin-bottom: 0px;
+        border: none;
+    }
+    .nosotros #presentacion .fotosDeClientes {
+        display:initial;
+    }
+    .fotos {
+        position: relative;
+        width: 100vw;
+        left: 0px;
+    }
+    #fotoDeFacturas, #fotoDeMedialunas {
+        position:absolute;
+        z-index: -1;
+        filter: blur(2px);
+        width: 20vw;
+    }
+    #fotoDeFacturas {
+        left: 250px;
+        top: 30px;
+    }
+    #fotoDeMedialunas {
+        right: 250px;
+        bottom: 30px;
+    }
+    #hornoDeFondo {
+        object-fit: cover;  
+        object-position: 100% 40%;
+        width: 35vw;
+        height: 500px;
+        filter: blur(4px);
+    }
+    #presentacion-texto {
+        width: 100vw;
+       height: 350px;
+       justify-content: center;
+    }
+    .nosotros #presentacion-texto > p {
+        width: 60%;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .fotosDeClientes {
+        display: inline;
+    }
+    
+        /* FIN PRESENTACION */
+    
+        /* INICIO PRODUCTOS */
+    
+    .cabecera {
+            text-align: center;
+            font-size: 39px;
+            width: 100vw;
+            padding: 7px 0;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 7px #000;
+            background: linear-gradient(to right, #fe000056, #fe0000,#fe000056);
+    }
+    .estructuraGralBig {
+        display:inline-block;
+        text-align: center;
+        margin: 0 auto;
+        width: 100vw;
+        height: 11vw;
+        font-size: 17px;
+        margin-top: 10px;
+        margin-bottom:0;
+    }
+    .estructuraGralBig h3 {
+        display: flex;
+        height:3vw;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to left, rgb(207, 207, 207),rgb(207, 207, 207), rgb(156, 156, 156),rgb(156, 156, 156),rgb(156, 156, 156),rgb(207, 207, 207),rgb(207, 207, 207));
+    }
+    .estructuraGralBig p {
+        display: flex;
+        font-weight: bold;
+        font-size: 18px;
+        justify-content: center ;
+        align-items: center;
+        line-height: 0;
+        height: 2vw;
+        padding: 5px 7px;
+        background: linear-gradient(to left,rgb(207, 207, 207), rgb(194, 194, 194),rgb(194, 194, 194),rgb(194, 194, 194),rgb(207, 207, 207));
+        
+
+    }
+
+
+
+    .titulosCompartidos {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 100vw;
+        margin-top: 0px;
+        text-align: center;
+        font-size: 20px;
+        padding: 7px 0;
+        color: #ffffff;
+        text-shadow: 0 0 7px #000;
+    }
+    .titulosCompartidos > div {
+        background: linear-gradient(to right, rgb(207, 207, 207), #47474756,#000000, #000000, #47474756, rgb(207, 207, 207));
+        width: 800px;
+    }
+    .tituloDelHorno {
+        display: none;
+    }
+
+
+
+    .hornoDe4, .hornoDe10 {
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* position: relative; */
+        margin-top: 40px;
+        text-align: center;
+        /* height: 50vw; */
+    }
+    .hornos {
+        display: none;
+    }
+    .ambosHornos {
+        display: flex;
+        justify-content: space-around;
+    }
+    .imgDeHorno {
+        width: 20vw;
+    }
+
+    .estructuraGralPantallaGrande {
+        display: none;
+        width: 35vw;
+        height: 11vw;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 17px;
+        margin-bottom: 90px;
+    }
+    .estructuraGralPantallaGrande h3 {
+        display: flex;
+        height: 2vw;
+        align-items: center;
+        justify-content: center;
+    }
+    .estructuraGralPantallaGrande p {
+        display: flex;
+        align-items: center;
+        height: 6vw;
+        padding: 5px 7px;
+        background: rgb(194, 194, 194);
+    }
+    .btnExp {
+        margin: 3px 0;
+        padding: 4px 6px;
+        border-top: none;
+        border-left: none;
+        border-right: 3px solid #000;
+        border-bottom: 3px solid #000;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        user-select: none;
+        font-size: 15px;
+        transition: .5s;
+        
+    }
+    
+    /* TABLA DE ESPECIFICACIONES TECNICAS DE HORNO DE 4 y DE 10*/
+    
+    .fichaTecnicaHorno4, .fichaTecnicaHorno10 {
+        margin: 0;
+        font-size: 0;
+        transition: .5s;
+        width: 40vw;
+        text-align: center;
+    }
+    .expandir {
+        font-size: 29px;
+        transition: .5s;
+        border-right: 3px solid rgb(179, 179, 179);
+        border-bottom: 3px solid rgb(179, 179, 179);
+        border-radius: 0 0 30px 0;
+    }
+    .td1 {
+        text-align: left;
+    }
+    
+    th {
+        color: #fff;
+        font-weight: lighter;
+    }
+
+    .hornoDe4 table, .hornoDe4 tr, .hornoDe4 th, .hornoDe4 td, .hornoDe10 table, .hornoDe10 tr, .hornoDe10 th, .hornoDe10 td {
+        border: 1px solid #fe0000;
+        border-collapse: collapse;
+    }
+    .hornoDe4 table, .hornoDe10 table{
+        display:inline-table;
+        margin: 7px auto;
+        border: 2px solid #fe0000;
+        background: rgb(221, 220, 220)
+    }
+    .hornoDe4 th, .hornoDe10 th {
+        text-align: center;
+        left: 10px;
+        font-size: 17px;
+        background: linear-gradient(to bottom, #fe0000, #fe000056);
+        color: #ffffff;
+        font-weight: lighter;
+        text-shadow: 0 0 6px #000;
+    }
+    .expandir {
+        font-size: 16px;
+        transition: .5s;
+        padding: 5px 0;
+        border-right: 2px solid rgb(179, 179, 179);
+        border-bottom: 2px solid rgb(179, 179, 179);
+        border-radius: 0 0 30px 0;
+    }
+    #tabla1, #tabla1-10 {
+        width: 40vw;
+        margin-top: -100px;
+    }
+
+    #celdaDeBtn {
+        height: 40px ;
+    }
+
+    .tablaDe4, .tablaDe10 {
+        display: flex;
+        margin:0 auto;
+        justify-content: space-around;
+        align-content: center;
+    }
+
+    
+        /* FIN TABLAS DE ESPECIFICACIONES TECNICAS */
+        /* FIN PRODUCTOS */
+    
+    
+        /* INICIO CONTACTO */
+        
+    .contacto {
+        background: linear-gradient(to right, #fe000056,#fe0000,#fe000056);
+        text-align: center;
+        padding: 70px 0;
+        width: 100vw;
+        height: 20vw;
+        margin-top: 30px;
+    }
+    .contacto-mapa {
+        margin: 0 auto;
+        margin-left:8vw;
+
+    }
+    #mapa {
+        width: 35vw;
+        height: 22vw;
+        float: left;
+    }
+    .contacto-flexContainer {
+        display: flex;
+        margin: .5vw 0;
+        /* align-content: center; */
+        /* align-items:center; */
+        /* justify-content: left; */
+    }
+    .contacto-flexItem1 {
+        align-self:center;
+    }
+    .contacto-datos {
+        width: 500px;
+        margin-top: -30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: baseline;
+    }
+    .contacto-datos .iconos {
+        justify-self:baseline;
+        width: 50px;
+        margin-bottom: 0px;
+    }
+    .seteoDeTexto {
+        text-align: left;
+        justify-content: center;
+        font-family: 'Raleway', sans-serif;
+        /* margin-left: 2vw; */
+        font-size: 22px;
+        width: 45vw;
+        font-weight: normal;
+        text-justify:inter-word;
+        letter-spacing: 1px;
+        
+    }
+    .seteoDeTexto:hover {
+        letter-spacing: 2px;
+        color: #fff;
+        text-shadow: none;
+        transition: .4s;
+    }
+    #letraChica{
+        font-size: 18px;
+        font-family: 'Raleway', sans-serif;
+    }
+    .iconos {
+        width: 5vw;
+        margin-left: 5vw;
+        margin-bottom: 5vw;
+        align-content: center;
+    }
+    .a:link, .a:visited {
+        text-decoration: none;
+        font-size: 20px;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+        font-weight: normal;
+        margin-left: 2vw;
+        transition: .9s;
+        letter-spacing: 2px;
+    }
+    .a:hover {
+        letter-spacing: 3px;
+        font-size: 22px;
+        color: #fff;
+        text-shadow: none;
+        transition: .4s;
+    }
+    .a-eMail:link, .a-eMail:visited {
+        font-size: 22px;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+        font-weight: normal;
+        margin-left: 2vw;
+        transition: .9s;
+    }
+    .a-eMail:hover {
+        font-size: 25px;
+        color: #fff;
+        text-shadow: none;
+        transition: .4s;
+        letter-spacing: 1px;
+    }
+    .contacto-lineaDivisoria {
+        height: 2px;
+        width: 50vw;
+        background:linear-gradient(to right, rgba(255, 255, 255, 0),#fff,rgba(255, 255, 255, 0));
+        margin: 10px 0;
+    }
+    
+        /* FIN CONTACTO */
+    
+        /* INICIO FOOTER */
+    .footer-lineaDivisoria {
+        width: 100vw;
+        height: 3px;
+        background: linear-gradient(to right, #fe0000,#000,#fe0000)
+    
+    }
+    .footer-rrss {
+        background: #fe0000;
+        width: 100vw;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icoRRSS {
+        width: 3vw;
+        filter:grayscale(60%);
+        transition: .5s;
+    }
+    .footer-flexItem {
+        margin: 0 7vw;
+    }
+    .icoRRSS:hover {
+        filter: none;
+        width:60px;
+        transition: .5s;
+    }
+    .footer-info {
+        width: 100vw;
+        display: flex;
+        background: rgb(44, 44, 44);
+        height: 80px;
+        color: rgb(192, 192, 192);
+        font-size: 18px;
+        align-items: center;
+    }
+    .footer-texto {
+        padding: 10px 0;
+        margin: 0 auto;
+    }
+        /* FIN FOOTER */
+    
+        /* INICIO LOGO WHATSAPP */
+    #logoWhatsapp {
+        width: 65px;
+        filter: saturate(2);
+        position: fixed;
+        bottom: 50px;
+        right: 3vw;
+        opacity: .5;
+        transition: .7s;
+    }
+    #logoWhatsapp:hover {
+        width: 80px;
+        opacity: 1;
+        transition: .5s;
+    } 
+         /* FIN LOGO WHATSAPP */
+    
+}
+
+@media only screen and (min-width: 1920px) {
+    .contenedor {
+        grid-template-columns: 910px 910px;
+    }
+    .nav {
+        height: 60px;
+        width: 100vw;
+        background: linear-gradient(to bottom,#fe0000, #00000000);
+        position:sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    #logoDelNav {
+        position: absolute;
+        width: 10vw;
+        left: 3vw;
+        top:12px;    
+        cursor: pointer;
+        transition: .3s;
+    }
+    #logoDelNav:hover {
+        filter: drop-shadow(0 0 10px #ffffff);
+        transition: .3s;
+    }
+    .menuDeNav {
+        text-align: center;
+        padding: 0;
+        display: block;
+        margin-left: 17vw;
+        list-style-type: none;
+        line-height: 30px;
+    }
+    .menuDeNav li {
+      font-size: 17px;
+      font-weight: normal;
+      color: rgb(71, 71, 71);
+      /* box-shadow: 2px solid rgb(187, 187, 187); */
+      background: rgba(254, 0, 0, 0.2);
+      text-align: center;
+      vertical-align: middle;
+      width: 100px;
+      height: 15px;
+      line-height: 15px;
+      float: left;
+      margin-right: 10px;
+      padding: 25px;
+      border-radius: 0 0 10px 10px;
+      transition: .5s;
+    }
+    .menuDeNav li:hover {
+      background: #fe0000;
+      color: #000;
+      font-size: 20px;
+      text-align: center;
+      border-top: none !important;
+      transition: 0.3s;
+      box-shadow: 0 2px 4px #fff, 2px 0 4px #fff, -2px 0 4px #fff;
+    }    
+
+        /* INICIO HEADER */
+    .contenedorDeImagen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #logoayd {
+        width: 50vw;
+        margin:4vw auto;
+    }
+    
+        /* FIN HEADER */
+    
+        /* INICIO PRESENTACION (nosotros)*/
+    #presentacion {
+        /* border: 3px solid hotpink; */
+        display: flex;
+        background: transparent;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100vw;
+        margin-bottom: 0px;
+        border: none;
+    }
+    .nosotros #presentacion .fotosDeClientes {
+        display:initial;
+    }
+    .fotos {
+        position: relative;
+        width: 100vw;
+        left: 0px;
+    }
+    #fotoDeFacturas, #fotoDeMedialunas {
+        position:absolute;
+        z-index: -1;
+        filter: blur(2px);
+        width: 20vw;
+    }
+    #fotoDeFacturas {
+        left: 280px;
+        top: 30px;
+    }
+    #fotoDeMedialunas {
+        right: 280px;
+        bottom: 30px;
+    }
+    #hornoDeFondo {
+        object-fit: cover;  
+        object-position: 100% 40%;
+        width: 35vw;
+        height: 550px;
+        filter: blur(4px);
+    }
+    #presentacion-texto {
+        width: 100vw;
+       height: 350px;
+       justify-content: center;
+    }
+    .nosotros #presentacion-texto > p {
+        width: 60%;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .fotosDeClientes {
+        display: inline;
+    }
+    
+        /* FIN PRESENTACION */
+    
+        /* INICIO PRODUCTOS */
+    .hornoDe4, .hornoDe10 {
+        margin-top: 40px;
+        margin-left: 5vw;
+        text-align: center;
+        
+    }
+    .cabecera {
+        text-align: center;
+        font-size: 39px;
+        width: 100vw;
+        padding: 7px 0;
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 0 0 7px #000;
+        background: linear-gradient(to right, #fe000056, #fe0000,#fe000056);
+    }
+    .tituloDelHorno {
+        width: 100vw;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 28px;
+        padding: 7px 0;
+        color: #ffffff;
+        text-shadow: 0 0 7px #000;
+        background: linear-gradient(to right, #00000056,#000000,#00000056);
+    }
+    .imgDeHorno {
+        margin: 20px 0 20px 30px;
+        width: 20vw;
+    }
+
+    .tituloDe10 {
+        margin-top: 100px;
+    }
+    .estructuraGralPantallaGrande {
+        display: none;
+    }
+   
+    .btnExp {
+        margin: 3px 0;
+        padding: 4px 6px;
+        border-top: none;
+        border-left: none;
+        border-right: 3px solid #000;
+        border-bottom: 3px solid #000;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        user-select: none;
+        font-size: 15px;
+        transition: .5s;
+
+    }
+
+    /* TABLA DE ESPECIFICACIONES TECNICAS DE HORNO DE 4 y DE 10*/
+    
+    .fichaTecnicaHorno4, .fichaTecnicaHorno10 {
+        font-size: 0;
+        transition: .5s;
+        width: 40vw;
+        text-align: center;
+    }
+    .expandir {
+        font-size: 29px;
+        transition: .5s;
+        border-right: 3px solid rgb(179, 179, 179);
+        border-bottom: 3px solid rgb(179, 179, 179);
+        border-radius: 0 0 30px 0;
+    }
+    .td1 {
+        text-align: left;
+    }
+    
+    th {
+        color: #fff;
+        font-weight: lighter;
+    }
+
+    .hornoDe4 table, .hornoDe4 tr, .hornoDe4 th, .hornoDe4 td, .hornoDe10 table, .hornoDe10 tr, .hornoDe10 th, .hornoDe10 td {
+        border: 1px solid #fe0000;
+        border-collapse: collapse;
+    }
+    .hornoDe4 table, .hornoDe10 table{
+        display:inline-table;
+        margin: 7px auto;
+        border: 2px solid #fe0000;
+        background: rgb(221, 220, 220)
+    }
+    .hornoDe4 th, .hornoDe10 th {
+        text-align: center;
+        left: 10px;
+        font-size: 17px;
+        background: linear-gradient(to bottom, #fe0000, #fe000056);
+        color: #ffffff;
+        font-weight: lighter;
+        text-shadow: 0 0 6px #000;
+    }
+    .expandir {
+        font-size: 14px;
+        transition: .5s;
+        padding: 5px 0;
+        border-right: 2px solid rgb(179, 179, 179);
+        border-bottom: 2px solid rgb(179, 179, 179);
+        border-radius: 0 0 30px 0;
+    }
+    #tabla1, #tabla1-10 {
+        width: 40vw;
+        margin-top: -100px;
+    }
+
+    #celdaDeBtn {
+        height: 40px ;
+    }
+
+    .tablaDe4, .tablaDe10 {
+        display: flex; 
+        margin: 0 auto;
+        justify-content: center;
+        align-content: center;
+    }
+
+    
+        /* FIN TABLAS DE ESPECIFICACIONES TECNICAS */
+        /* FIN PRODUCTOS */
+    
+    
+        /* INICIO CONTACTO */
+        
+    .contacto {
+        background: linear-gradient(to right, #fe000056,#fe0000,#fe000056);
+        text-align: center;
+        padding: 70px 0;
+        width: 100vw;
+        height: 20vw;
+
+    }
+    .contacto-mapa {
+        margin: 0 auto;
+    }
+    #mapa {
+        width: 35vw;
+        height: 22vw;
+        float: left;
+        margin-left: 10vw;
+    }
+    .contacto-flexContainer {
+        display: flex;
+        margin: .5vw 0;
+        /* align-content: center; */
+        /* align-items:center; */
+        /* justify-content: left; */
+    }
+    .contacto-flexItem1 {
+        align-self:center;
+    }
+    .contacto-datos {
+        width: 500px;
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: baseline;
+    }
+    .contacto-datos .iconos {
+        justify-self:baseline;
+        width: 50px;
+        margin-bottom: 0px;
+    }
+    .seteoDeTexto {
+        text-align: left;
+        justify-content: center;
+        font-family: 'Raleway', sans-serif;
+        /* margin-left: 3vw; */
+        font-size: 22px;
+        letter-spacing: 1px;
+        width: 45vw;
+        font-weight: bolder;
+        text-justify:inter-word;
+
+    }
+    .seteoDeTexto:hover {
+        text-shadow: none;
+
+    }
+    #letraChica{
+        font-size: 18px;
+        font-family: 'Raleway', sans-serif;
+    }
+    .iconos {
+        width: 5vw;
+        margin-left: 7vw;
+        margin-bottom: 5vw;
+        align-content: center;
+    }
+    .a:link, .a:visited {
+        text-decoration: none;
+        text-align: center;
+        font-size: 20px;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        margin-left: 3vw;
+        transition: .9s;
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        width: 60vw;
+    }
+    .a:hover {
+        font-size: 25px;
+        color: #fff;
+        text-shadow: none;
+        transition: .4s;
+    }
+    .a-eMail:link, .a-eMail:visited {
+        font-size: 22px;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+        font-weight: bold;
+        margin-left: 3vw;
+        transition: .9s;
+    }
+    .a-eMail:hover {
+        font-size: 25px;
+        color: #fff;
+        text-shadow: none;
+        transition: .4s;
+    }
+    .contacto-lineaDivisoria {
+        height: 2px;
+        width: 50vw;
+        background:linear-gradient(to right, rgba(255, 255, 255, 0),#fff,rgba(255, 255, 255, 0));
+        margin: 10px 0;
+    }
+    
+        /* FIN CONTACTO */
+    
+        /* INICIO FOOTER */
+    .footer-lineaDivisoria {
+        width: 100vw;
+        height: 3px;
+        background: linear-gradient(to right, #fe0000,#000,#fe0000)
+    
+    }
+    .footer-rrss {
+        background: #fe0000;
+        width: 100vw;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icoRRSS {
+        width: 2.5vw;
+        filter:grayscale(60%);
+        transition: .5s;
+    }
+    .footer-flexItem {
+        margin: 0 7vw;
+    }
+    .icoRRSS:hover {
+        filter: none;
+        width:60px;
+        transition: .5s;
+    }
+    .footer-info {
+        width: 100vw;
+        display: flex;
+        background: rgb(44, 44, 44);
+        height: 80px;
+        color: rgb(192, 192, 192);
+        font-size: 18px;
+        align-items: center;
+    }
+    .footer-texto {
+        padding: 10px 0;
+        margin: 0 auto;
+    }
+        /* FIN FOOTER */
+    
+        /* INICIO LOGO WHATSAPP */
+    #logoWhatsapp {
+        width: 65px;
+        filter: saturate(2);
+        position: fixed;
+        bottom: 50px;
+        right: 3vw;
+        opacity: .5;
+        transition: .7s;
+    }
+    #logoWhatsapp:hover {
+        width: 80px;
+        opacity: 1;
+        transition: .5s;
+    } 
+         /* FIN LOGO WHATSAPP */
+    
+}
